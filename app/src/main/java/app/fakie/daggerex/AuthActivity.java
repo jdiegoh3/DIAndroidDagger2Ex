@@ -14,10 +14,15 @@ public class AuthActivity extends DaggerAppCompatActivity {
     @Inject
     String exampleRenamedInjectionOnActivity;
 
+    @Inject
+    boolean isAppNull;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
         Log.d(TAG, "onCreate: " + exampleRenamedInjectionOnActivity);
+        Log.d(TAG, "onCreate: Is app null?" + isAppNull);
     }
 }

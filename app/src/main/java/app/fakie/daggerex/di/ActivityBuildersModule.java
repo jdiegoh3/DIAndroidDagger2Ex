@@ -2,7 +2,6 @@ package app.fakie.daggerex.di;
 
 import app.fakie.daggerex.AuthActivity;
 import dagger.Module;
-import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
@@ -11,9 +10,4 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     abstract AuthActivity contributeAuthActivity();
-
-    @Provides
-    static String someString(){
-        return "Example injection into AuthActivity";
-    }
 }
