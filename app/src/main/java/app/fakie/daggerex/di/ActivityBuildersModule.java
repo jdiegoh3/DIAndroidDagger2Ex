@@ -1,6 +1,7 @@
 package app.fakie.daggerex.di;
 
-import app.fakie.daggerex.AuthActivity;
+import app.fakie.daggerex.di.auth.AuthViewModelsModule;
+import app.fakie.daggerex.ui.auth.AuthActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -8,6 +9,8 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ActivityBuildersModule {
     // Let dagger know that AuthActivity will be a potential service consumer.
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+            modules = {AuthViewModelsModule.class}
+    )
     abstract AuthActivity contributeAuthActivity();
 }
