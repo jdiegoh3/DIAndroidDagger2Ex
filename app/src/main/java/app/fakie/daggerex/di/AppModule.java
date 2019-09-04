@@ -1,7 +1,14 @@
 package app.fakie.daggerex.di;
 
 import android.app.Application;
+import android.graphics.drawable.Drawable;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.request.RequestOptions;
+
+import androidx.core.content.ContextCompat;
+import app.fakie.daggerex.R;
 import dagger.Module;
 import dagger.Provides;
 
@@ -9,23 +16,21 @@ import dagger.Provides;
 public class AppModule {
     // Not abstract, i don't use contributesAndroidInjector.
 
-    // Will exists into the entire lifetime of the application.
     @Provides
-    static String someString(){
-        return "Example injection into AuthActivity";
+    static RequestOptions provideRequestOptions(){
+        return RequestOptions
+                .placeholderOf(R.drawable.white_background)
+                .error(R.drawable.white_background);
     }
 
     @Provides
-    static boolean getApp(Application application){
-        return application == null;
+    static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions){
+        return Glide.with(application)
+                .setDefaultRequestOptions(requestOptions);
     }
 
     @Provides
-    static int someInt(String string){
-        if(string.equals(("Example injection into AuthActivity"))){
-            return 1;
-        }
-        return 0;
+    static Drawable provideAppDrawable(Application application){
+        return ContextCompat.getDrawable(application, R.drawable.ic_launcher_foreground);
     }
-
 }
