@@ -2,14 +2,16 @@ package app.fakie.daggerex.di;
 
 import android.app.Application;
 
+import javax.inject.Singleton;
+
 import app.fakie.daggerex.BaseApplication;
 import dagger.BindsInstance;
 import dagger.Component;
-import dagger.Provides;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 
+@Singleton
 @Component(
         modules = {
                 AndroidSupportInjectionModule.class,
