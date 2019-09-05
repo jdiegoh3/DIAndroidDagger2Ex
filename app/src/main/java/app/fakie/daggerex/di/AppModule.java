@@ -11,12 +11,24 @@ import javax.inject.Singleton;
 
 import androidx.core.content.ContextCompat;
 import app.fakie.daggerex.R;
+import app.fakie.daggerex.util.StaticConstants;
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class AppModule {
     // Not abstract, i don't use contributesAndroidInjector.
+
+    @Singleton
+    @Provides
+    static Retrofit provideRetrofitInstance(){
+        return new Retrofit.Builder()
+                .baseUrl(StaticConstants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     @Singleton
     @Provides
