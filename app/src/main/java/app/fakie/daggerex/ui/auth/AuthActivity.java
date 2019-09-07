@@ -87,11 +87,13 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                 if(userAuthResource != null) {
                     switch (userAuthResource.status) {
                         case LOADING: {
+                            showProgressBar(true);
                             Log.d(TAG, "onChanged: BaseActivity: LOADING...");
                             break;
                         }
 
                         case AUTHENTICATED: {
+                            showProgressBar(false);
                             Log.d(TAG, "onChanged: BaseActivity: AUTHENTICATED... " +
                                     "Authenticated as: " + userAuthResource.data.getEmail());
                             onLoginSuccess();
@@ -99,12 +101,14 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         }
 
                         case ERROR: {
+                            showProgressBar(false);
                             Log.d(TAG, "onChanged: BaseActivity: ERROR...");
                             Toast.makeText(AuthActivity.this, "Could login. Incorrect user id", Toast.LENGTH_LONG).show();
                             break;
                         }
 
                         case NOT_AUTHENTICATED: {
+                            showProgressBar(false);
                             Log.d(TAG, "onChanged: BaseActivity: NOT AUTHENTICATED. Navigating to Login screen.");
                             break;
                         }
@@ -112,6 +116,15 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                 }
             }
         });
+    }
+
+    private void showProgressBar(boolean show) {
+        if(show) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        } else {
+            mProgressBar.setVisibility(View.GONE);
+        }
+
     }
 
     private void onLoginSuccess() {
