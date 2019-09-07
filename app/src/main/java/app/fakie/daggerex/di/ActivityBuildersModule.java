@@ -3,6 +3,7 @@ package app.fakie.daggerex.di;
 import app.fakie.daggerex.di.auth.AuthModule;
 import app.fakie.daggerex.di.auth.AuthViewModelsModule;
 import app.fakie.daggerex.ui.auth.AuthActivity;
+import app.fakie.daggerex.ui.main.MainActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -17,4 +18,7 @@ public abstract class ActivityBuildersModule {
             }
     )
     abstract AuthActivity contributeAuthActivity();
+
+    @ContributesAndroidInjector()
+    abstract MainActivity contributeMainActivity();
 }

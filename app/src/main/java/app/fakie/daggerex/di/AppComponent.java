@@ -5,6 +5,7 @@ import android.app.Application;
 import javax.inject.Singleton;
 
 import app.fakie.daggerex.BaseApplication;
+import app.fakie.daggerex.SessionManager;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
@@ -21,6 +22,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
+
+    SessionManager sessionManager = new SessionManager();
 
     @Component.Builder
     interface Builder{
