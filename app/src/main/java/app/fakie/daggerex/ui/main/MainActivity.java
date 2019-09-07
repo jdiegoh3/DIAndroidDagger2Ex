@@ -3,6 +3,7 @@ package app.fakie.daggerex.ui.main;
 import androidx.appcompat.app.AppCompatActivity;
 import app.fakie.daggerex.R;
 import app.fakie.daggerex.ui.BaseActivity;
+import app.fakie.daggerex.ui.main.profile.ProfileFragment;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        testFragment();  
     }
 
     @Override
@@ -33,5 +35,11 @@ public class MainActivity extends BaseActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void testFragment(){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new ProfileFragment())
+                .commit();
     }
 }
