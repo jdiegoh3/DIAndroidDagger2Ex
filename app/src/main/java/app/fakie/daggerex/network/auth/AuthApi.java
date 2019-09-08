@@ -1,4 +1,4 @@
-package app.fakie.daggerex.network;
+package app.fakie.daggerex.network.auth;
 
 import app.fakie.daggerex.models.User;
 import io.reactivex.Flowable;

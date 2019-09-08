@@ -3,6 +3,7 @@ package app.fakie.daggerex.di;
 import app.fakie.daggerex.di.auth.AuthModule;
 import app.fakie.daggerex.di.auth.AuthViewModelsModule;
 import app.fakie.daggerex.di.main.MainFragmentBuildersModule;
+import app.fakie.daggerex.di.main.MainModule;
 import app.fakie.daggerex.di.main.MainViewModelsModule;
 import app.fakie.daggerex.ui.auth.AuthActivity;
 import app.fakie.daggerex.ui.main.MainActivity;
@@ -25,6 +26,7 @@ public abstract class ActivityBuildersModule {
             modules = {
                     MainFragmentBuildersModule.class,
                     MainViewModelsModule.class,
+                    MainModule.class,
             }
     )
     abstract MainActivity contributeMainActivity();

@@ -6,12 +6,10 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
-import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import app.fakie.daggerex.SessionManager;
 import app.fakie.daggerex.models.User;
-import app.fakie.daggerex.network.AuthApi;
+import app.fakie.daggerex.network.auth.AuthApi;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 

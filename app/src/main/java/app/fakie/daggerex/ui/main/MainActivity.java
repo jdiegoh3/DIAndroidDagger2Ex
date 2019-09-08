@@ -3,6 +3,7 @@ package app.fakie.daggerex.ui.main;
 import androidx.appcompat.app.AppCompatActivity;
 import app.fakie.daggerex.R;
 import app.fakie.daggerex.ui.BaseActivity;
+import app.fakie.daggerex.ui.main.posts.PostFragment;
 import app.fakie.daggerex.ui.main.profile.ProfileFragment;
 
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity {
 
     public void testFragment(){
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_container, new ProfileFragment())
+                .replace(R.id.main_container, new PostFragment())
                 .commit();
     }
 }

@@ -1,6 +1,6 @@
 package app.fakie.daggerex.di.auth;
 
-import app.fakie.daggerex.network.AuthApi;
+import app.fakie.daggerex.network.auth.AuthApi;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
